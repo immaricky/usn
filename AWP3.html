@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//w3c//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title> Validate USN </title>
+<style>
+::selection {
+    color: blue;
+    background:black ;
+}
+</style>
+				
+<SCRIPT> 		
+function validateUSN(usnNumber)
+			{ 
+			var ok=usnNumber.search(/[1-4][A-Z]{2}\d{2}[A-Z]{2}\d{3}/);
+				if(ok==0 && usnNumber.length==10)
+				{
+					alert("The USN is Valid");
+					document.getElementById("sem").focus();
+				}
+				else
+				{
+					alert("The USN is InValid");
+					document.getElementById("usnNumber").select();
+				}
+			}
+			
+function validateSem(sem)
+			{ 
+				var ok=sem.search(/[1-8]/);
+				if(ok==0 && sem.length==1)
+				{
+					alert("The Sem is Valid");
+				}
+				else
+				{
+					alert("The Sem is InValid");
+					document.getElementById("sem").select();
+
+				}
+
+			}  
+</SCRIPT>
+</head>
+	<body>
+
+		<FORM Name="formUSN" ID="formUSN">
+			Enter USN
+			<br>
+			<INPUT Type=Text Name="usnNumber" ID="usnNumber">
+			<INPUT Type=Button Name="btnValidate" ID="btnValidate"  
+                  value="Validate" onclick='validateUSN(usnNumber.value);'>
+			<br>
+			Enter Semester
+			<br>
+			<INPUT Type=Text Name="sem" ID="sem">
+			<INPUT Type=Button Name="btnValidateSem" ID="btnValidateSem" 
+                         value="Validate" onclick='validateSem(sem.value);'>
+
+		</FORM>
+	</body>
+</html>
